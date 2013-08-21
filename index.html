@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,10 +62,11 @@ $(function(){
 </head>
 <body>
     <div data-role="page" id="home">
-        <div data-theme="a" data-role="header">
+        <div data-theme="a" data-role="header" style="padding:20px; background:#ff4d0d;"> 
+            <a href="#" onclick="refreshPage()" class='styled-button-8 update' style="float:left; position:absolute; top:20px;">UPDATE</a>
             <h3>
                IHP NEWS
-                <a href="#" onclick="refreshPage()" class='styled-button-8'>UPDATE</a>
+               
             </h3>
         </div>        
         <div data-role="content">
@@ -83,12 +85,31 @@ $(function(){
 
 
 <script type="text/javascript">
-
+/*
 function refreshPage()
 {
 
   setTimeout("window.location.reload();",3000);
 }
+*/
 
+</script>
+
+<script type="text/javascript">
+$("a.update").click(function(e){
+
+            e.preventDefault();
+        var that = this;
+        var text = $(this).html();
+        $(this).html("<img src='images/loading.gif' style='width:40px; height:40px;' />");
+        setTimeout(function(){
+            //fade back 
+
+              window.location.reload();
+            $(that).html(text);
+
+           
+        }, 3000);
+     });
 
 </script>
